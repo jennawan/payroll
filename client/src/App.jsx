@@ -1,8 +1,8 @@
-import Home from "./pages/Home"
+import NewPayslip from "./pages/NewPayslip"
 
 const App = () => {
     return (
-        <Home />
+        <NewPayslip />
     )
 }
 
