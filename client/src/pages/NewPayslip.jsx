@@ -1,5 +1,6 @@
 import { FaRegUserCircle } from 'react-icons/fa'
 import styled from 'styled-components';
+import Navbar from '../components/Navbar';
 
 const Container = styled.div`
     background-color:#eeeeee;
@@ -51,7 +52,6 @@ const Input = styled.input`
     font-size:16px;
     padding:8px;
     margin-top:10px;
-    width
 `
 
 const InputContainer = styled.div`
@@ -86,44 +86,47 @@ const Button = styled.button`
 
 const NewPayslip = () => {
     return (
-        <Container>
-            <Title>Pay Slip Generator</Title>
-            <Wrapper>
-                <InfoContainer>
-                    <FaRegUserCircle size="30" />
-                    <InfoText>Employee Info</InfoText>
-                </InfoContainer >
-                <Form>
-                    <div>
-                        <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" />
-                    </div>
-                    <div>
-                        <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" />
-                    </div>
-                    <div>
-                        <Label htmlFor="annualSalary">Annual Salary</Label>
-                        <InputContainer>
-                            <Span>$</Span>
-                            <InputBox id="annualSalary" />
-                        </InputContainer>
-                    </div>
-                    <div>
-                        <Label htmlFor="super">Superannuation Rate</Label>
-                        <InputContainer>
-                            <Span>%</Span>
-                            <InputBox id="super" />
-                        </InputContainer>
-                    </div>
-                    <div>
-                        <Label htmlFor="payStart">Payment Start Date</Label>
-                        <Input id="payStart" type="date" />
-                    </div>
-                    <Button>Generate Payslip</Button>
-                </Form>
-            </Wrapper>
-        </Container>
+        <>
+            <Navbar />
+            <Container>
+                <Title>Pay Slip Generator</Title>
+                <Wrapper>
+                    <InfoContainer>
+                        <FaRegUserCircle size="30" />
+                        <InfoText>Employee Info</InfoText>
+                    </InfoContainer >
+                    <Form>
+                        <div>
+                            <Label htmlFor="firstName">First Name</Label>
+                            <Input id="firstName" />
+                        </div>
+                        <div>
+                            <Label htmlFor="lastName">Last Name</Label>
+                            <Input id="lastName" />
+                        </div>
+                        <div>
+                            <Label htmlFor="annualSalary">Annual Salary</Label>
+                            <InputContainer>
+                                <Span>$</Span>
+                                <InputBox id="annualSalary" />
+                            </InputContainer>
+                        </div>
+                        <div>
+                            <Label htmlFor="super">Superannuation Rate</Label>
+                            <InputContainer>
+                                <Span>%</Span>
+                                <InputBox id="super" />
+                            </InputContainer>
+                        </div>
+                        <div>
+                            <Label htmlFor="payStart">Payment Start Date</Label>
+                            <Input id="payStart" type="date" />
+                        </div>
+                        <Button>Generate Payslip</Button>
+                    </Form>
+                </Wrapper>
+            </Container>
+        </>
     )
 }
 
