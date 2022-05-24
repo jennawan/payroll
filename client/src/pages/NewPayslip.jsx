@@ -4,9 +4,9 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 const Container = styled.div`
-    background-color:#eeeeee;
+    background-color:#f0f0f0;
     width:100vw;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction:column;
     align-items:center;
