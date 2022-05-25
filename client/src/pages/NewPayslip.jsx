@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { FaRegUserCircle } from 'react-icons/fa'
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
+import { addEmployeeInfo } from '../redux/apiCalls';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
     background-color:#f0f0f0;
@@ -82,10 +86,35 @@ const Button = styled.button`
     align-self:flex-end;
     background-color:#6246ca;
     color:white;
-    font-size: 16px;;
+    font-size: 16px;
+    cursor: pointer;
 `
 
 const NewPayslip = () => {
+    const [inputs, setInputs] = useState({});
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const userId = useSelector(state => state.user.currentUser._id);
+
+    const handleChange = (e) => {
+        setInputs(prev => (
+            {
+                ...prev,
+                [e.target.name]: e.target.value
+            }
+        ))
+    };
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        const employeeInfo = { ...inputs, userId };
+        navigate("/previewpayslip", { state: { data: employeeInfo } });
+        addEmployeeInfo(dispatch, employeeInfo);
+
+    }
+
+
+
     return (
         <>
             <Navbar />
@@ -98,32 +127,32 @@ const NewPayslip = () => {
                     </InfoContainer >
                     <Form>
                         <div>
-                            <Label htmlFor="firstName">First Name</Label>
-                            <Input id="firstName" />
+                            <Label htmlFor="firstName" >First Name</Label>
+                            <Input type="text" name="firstName" id="firstName" onChange={handleChange} />
                         </div>
                         <div>
-                            <Label htmlFor="lastName">Last Name</Label>
-                            <Input id="lastName" />
+                            <Label htmlFor="lastName" >Last Name</Label>
+                            <Input type="text" name="lastName" id="lastName" onChange={handleChange} />
                         </div>
                         <div>
-                            <Label htmlFor="annualSalary">Annual Salary</Label>
+                            <Label htmlFor="annualSalary" >Annual Salary</Label>
                             <InputContainer>
                                 <Span>$</Span>
-                                <InputBox id="annualSalary" />
+                                <InputBox type="number" name="annualSalary" id="annualSalary" onChange={handleChange} />
                             </InputContainer>
                         </div>
                         <div>
                             <Label htmlFor="super">Superannuation Rate</Label>
                             <InputContainer>
                                 <Span>%</Span>
-                                <InputBox id="super" />
+                                <InputBox type="number" name="superannuation" id="super" onChange={handleChange} />
                             </InputContainer>
                         </div>
                         <div>
-                            <Label htmlFor="payStart">Payment Start Date</Label>
-                            <Input id="payStart" type="date" />
+                            <Label htmlFor="payStartDate">Payment Start Date</Label>
+                            <Input name="payStartDate" id="payStartDate" type="date" onChange={handleChange} />
                         </div>
-                        <Button>Generate Payslip</Button>
+                        <Button onClick={handleClick}>Generate Payslip</Button>
                     </Form>
                 </Wrapper>
             </Container>

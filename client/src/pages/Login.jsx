@@ -1,4 +1,9 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { useState } from "react";
+import { login } from "../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
+
+
 
 const Container = styled.div`
     width: 100vw;
@@ -50,20 +55,40 @@ const Button = styled.button`
     color:white;
     cursor: pointer;
     margin-bottom: 10px;
+    &:disabled{
+        background-color:grey;
+        cursor:not-allowed;
+    }
 `;
 
+const Error = styled.p`
+    color:red;
+    font-size:12px;
+`
 
 
 const Home = () => {
+    const dispatch = useDispatch();
+    const { isFetching, error } = useSelector((state) => state.user);
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        login(dispatch, { username, password })
+    }
+
     return (
         <Container>
             <Logo>EzPayslip</Logo>
             <Title>Sign in to Pay Slip Generator</Title>
             <Wrapper>
-                <Form>
-                    <Input placeholder="username" />
-                    <Input type="password" placeholder="password" />
-                    <Button>LOGIN</Button>
+                <Form onSubmit={handleSubmit}>
+                    <Input placeholder="username" onChange={(e) => setUsername(e.target.value)} />
+                    <Input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
+                    <Button type="submit" disabled={isFetching}>LOGIN</Button>
+                    {error && <Error>Wrong credentials!</Error>}
                 </Form>
             </Wrapper>
         </Container>
