@@ -55,7 +55,7 @@ For the next part of this documentation, we assumed that EzPayslip is listening 
 You can make an `HTTP POST` call to create/register a new user to the following endpoint. 
 
 ```shell
-http://localhost:5000/api/vi/auth/register
+http://localhost:5000/api/v1/auth/register
 ```
 
 **API Payload & Response**
