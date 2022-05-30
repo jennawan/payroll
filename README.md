@@ -81,10 +81,15 @@ You will not need to make `HTTP POST` call anymore, simply visit http://localhos
 ## What EzPayslip payroll system do
 
 - [Provide secure access (login/logout)]
+<img width="808" alt="login" src="https://user-images.githubusercontent.com/101085792/170919803-d7d56696-9e07-485e-a87e-8ac180a5377f.png">
 - [Capture employee details]
+<img width="1496" alt="new payslip" src="https://user-images.githubusercontent.com/101085792/170919820-d53f1a8f-0906-4631-8359-b114eaf722d9.png">
 - [Generate pay slip details]
 - [Preview a generated pay slip]
+<img width="1496" alt="preview paysli" src="https://user-images.githubusercontent.com/101085792/170919899-94f78b6b-12d4-449a-9cc8-dd098b505a56.png">
 - [View pay slip history]
+<img width="1495" alt="payslip list" src="https://user-images.githubusercontent.com/101085792/170919912-c5644f5a-122c-4b16-8d3c-127056425464.png">
 - [Save/print/download a generated pay slip]
+<img width="1494" alt="print payslip" src="https://user-images.githubusercontent.com/101085792/170919927-784c2e5b-06c2-4b9e-a582-bf998d26cdb3.png">
 
 Hope you enjoy!
