@@ -1,25 +1,30 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const EmployeeInfoSchema = new mongoose.Schema(
-    {
-        userId: { type: String, required: true },
-        firstName: {
-            type: String,
-        },
-        lastName: {
-            type: String,
-        },
-        annualSalary: {
-            type: Number,
-        },
-        superannuation: {
-            type: Number,
-        },
-        payStartDate: {
-            type: Date,
-        }
-
-    }, { timestamps: true }
+  {
+    userId: { type: String, required: true },
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    annualSalary: {
+      type: Number,
+      required: true,
+    },
+    superannuationRate: {
+      type: Number,
+      required: true,
+    },
+    payStartDate: {
+      type: Date,
+      required: true,
+    },
+  },
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("EmployeeInfo", EmployeeInfoSchema);

@@ -1,15 +1,6 @@
 # EzPayslip - a simple payroll management system
 
-- [EzPayslip - a simple payroll management system](#ezPayslip---a-simple-payroll-management-system)
-  - [Getting Started](#getting-started)
-  - [Routes Documentation](#routes-documentation)
-    - [User Registration](#user-registration)
-    - [User Authentication/Login](#user-authenticationlogin)
-- [What EzPayslip payroll system do](#what-ezpayslip-payroll-system-do)
-
 ## Getting Started
-
-It's super easy to get EzPayslip up and running.
 
 1.  Clone the project
 
@@ -17,12 +8,10 @@ It's super easy to get EzPayslip up and running.
 git clone https://github.com/jennawan/payroll.git
 ```
 
-2.  Install the dependencies
+2.  Install the dependencies at server
 
 ```shell
-cd client
-npm install
-cd ../server
+cd server
 npm install
 ```
 
@@ -41,8 +30,6 @@ mongodb+srv://user:<password>@cluster0.8t2uc.mongodb.net/?retryWrites=true&w=maj
 5. Start server and client
 
 ```shell
-npm start
-cd ../client
 npm start
 ```
 
@@ -77,14 +64,3 @@ If this user already exists, then you will receive a 409 Response. Please try ag
 ### User Authentication/Login
 
 You will not need to make `HTTP POST` call anymore, simply start client and visit http://localhost:3000/ and login using the information you registered with.
-
-## What EzPayslip payroll system do
-
-- [Provide secure access (login/logout)]
-- [Capture employee details]
-- [Generate pay slip details]
-- [Preview a generated pay slip]
-- [View pay slip history]
-- [Save/print/download a generated pay slip]
-
-Hope you enjoy!
